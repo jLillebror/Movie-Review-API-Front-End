@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MovieDB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Reviews</h1>
+        <button id="addReviewButton" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#addReviewModal">Add Review</button>
+    </div>
+    <div class="container">
+        <h2>Enter Review ID</h2>
+        <div class="mb-3">
+            <input type="number" class="form-control" id="reviewIdInput" placeholder="Enter Review Id">
+            <div id="review-details"></div>
+
+        </div>
+        <h1>Review List</h1>
+        <div id="review-error-message"></div>
+        <button id="toggleReviewsButton" class="btn btn-secondary">Show All Reviews</button> <!-- Add toggle button -->
+        <div id="reviews-list" class="row"></div>
+        
+    </div>
+    
+    <div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addReviewModalLabel">Add New Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addReviewForm">
+                        <div class="mb-3">
+                            <label for="movieIdInput" class="form-label">Movie ID</label>
+                            <input type="text" class="form-control" id="movieIdInput" required>
+                        </div>
+                        <label for="movieTitle" class="form-label">Movie Title</label>
+                        <div class="mb-3">
+                            <label for="review" class="form-label">Review</label>
+                            <textarea class="form-control" id="review" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Rating</label>
+                            <select class="form-select" id="rating" required>
+                                <option value="Awful">Awful</option>
+                                <option value="Bad">Bad</option>
+                                <option value="Average">Average</option>
+                                <option value="Good">Good</option>
+                                <option value="Amazing">Amazing</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="editReviewModal" tabindex="-1" aria-labelledby="editReviewModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editReviewModalLabel">Edit Review</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editReviewForm">
+                    <input type="hidden" id="editReviewId">
+          <input type="hidden" id="editMovieId">
+                    <div class="mb-3">
+                        <label for="editRating" class="form-label">Rating</label>
+                        <select class="form-select" id="editRating" required>
+                            <option value="Awful">Awful</option>
+                            <option value="Bad">Bad</option>
+                            <option value="Average">Average</option>
+                            <option value="Good">Good</option>
+                            <option value="Amazing">Amazing</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editReview" class="form-label">Review</label>
+                        <textarea class="form-control" id="editReview" rows="3" required></textarea>
+                    </div>
+                    <input type="hidden" id="editReviewId">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/movies.js"></script>
+    <script type="module" src="scripts/reviews.js"></script>
+
+</body>
+
+</html>

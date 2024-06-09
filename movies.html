@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MovieDB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="movies.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Movies</h1>
+        <button id="createMovieButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+            Add Movie
+        </button>
+    </div>
+    <div class="container">
+        <h2>Enter Movie ID</h2>
+        <div class="mb-3">
+            <input type="number" class="form-control" id="movieIdInput" placeholder="Enter movie ID" />
+        </div>
+    </div>
+    <div class="container">
+        <h2>Movies List</h2>
+        <div id="movie-error-message"></div>
+        <button id="toggleMoviesButton" class="btn btn-primary">
+            Show All Movies
+        </button>
+        <div id="movies-list" class="row"></div>
+    </div>
+    <div id="movie-details"></div>
+
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModalLabel">Add New Movie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createMovieForm">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Director" class="form-label">Director</label>
+                            <textarea class="form-control" id="director" rows="1" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="genre" class="form-label">Genre</label>
+                            <input type="text" class="form-control" id="genre" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Year</label>
+                            <input type="number" class="form-control" id="year" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Create Movie
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Movie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editMovieForm">
+                        <div class="mb-3">
+                            <label for="editTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="editTitle" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDirector" class="form-label">Director</label>
+                            <textarea class="form-control" id="editDirector" rows="1" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="editDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editGenre" class="form-label">Genre</label>
+                            <textarea class="form-control" id="editGenre" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editYear" class="form-label">Year</label>
+                            <input type="number" class="form-control" id="editYear" required />
+                        </div>
+                        <div><input type="hidden" id="editMovieId" /></div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Update Movie
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/movies.js"></script>
+    <script type="module" src="scripts/reviews.js"></script>
+</body>
+
+</html>
